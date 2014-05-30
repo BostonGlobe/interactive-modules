@@ -1,22 +1,14 @@
-# interactive-modules
+# Interactive modules for Globe graphics
 
-This graphic was generated with [generator-globegraphic](https://github.com/BostonGlobe/generator-globegraphic). Consults its [README](https://github.com/BostonGlobe/generator-globegraphic) for more information.
+## Description 
+This demo project contains samples of modules for Globe interactives. The modules are reusable bits of code that perform a specific task. Check out the source code for implementation instructions.
 
-Please note: do not reproduce Boston Globe logos or fonts without written permission.
+## Modules
 
-## Install
+####Audio player (need to add)
+dependencies: howler, html5-audio-player (see js/libs)
+instructions forthcoming
 
-- `npm install`
-
-## Usage
-
-### Development
-
-- `gulp standalone` for **standalone** graphic.
-- `gulp homepage` for **homepage** graphic.
-
-### Production
-
-- `gulp standalone-prod` for **standalone** graphic.
-- `gulp homepage-prod` for **homepage** graphic.
-
+####Fuzzy search (in progress)
+dependecies: jqueryui autocomplete (see js/libs)
+instructions forthcoming
