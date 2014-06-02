@@ -16,7 +16,6 @@
 		</div>
 		<div class='sample'>
 			<h2>Fuzzy search</h2>
-			
 			<!-- fuzzy search -->
 			<form class='fuzzySearch'>
 				<input class='fuzzySearchInput' placeholder='Enter a town in MA'>
@@ -30,7 +29,6 @@
 
 		<div class='sample'>
 			<h2>Fuzzy search w/ autocomplete</h2>
-			
 			<!-- fuzzy search -->
 			<form class='fuzzySearchAuto'>
 				<div class='ui-widget'>
@@ -53,7 +51,48 @@
 				<p id='sheetCat'></p>
 			</div>
 			<!-- end spreadsheet data -->
+		</div>
 
+		<div class='sample'>
+			<h2>Responsive table (just css)</h2>
+			<!-- responsive table -->
+			<table>
+			    <thead>
+			        <tr>
+			            <th>Town</th>
+			            <th>Population</th>
+			            <th>Median income</th>
+			            <th>Poverty rate</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+					<tr>
+					    <td data-title='town'>Needham</td>
+					    <td data-title='population'>28886</td>
+					    <td data-title='medianIncome'>$125170</td>
+					    <td data-title='povertyRate'>4.2%</td>
+					</tr>
+					<tr>
+						<td data-title='town'>Sharon</td>
+						<td data-title='population'>17612</td>
+						<td data-title='medianIncome'>$127647</td>
+						<td data-title='povertyRate'>3.5%</td>
+					</tr>
+					<tr>
+						<td data-title='town'>Hopkinton</td>
+						<td data-title='population'>14925</td>
+						<td data-title='medianIncome'>$127821</td>
+						<td data-title='povertyRate'>2.2%</td>
+					</tr>
+					<tr>
+						<td data-title='town'>Winchester</td>
+						<td data-title='population'>21374</td>
+						<td data-title='medianIncome'>$128199</td>
+						<td data-title='povertyRate'>3.9%</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- end responsive table -->
 		</div>
 	</div>
 	<div class='source-and-credit'>

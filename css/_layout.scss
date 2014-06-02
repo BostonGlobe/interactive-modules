@@ -87,6 +87,74 @@
 
 
 
+/*responsive table css*/
+
+/*this first part is just for general styling for the speficic table*/
+table {
+	font-family: Helvetica, Arial, sans-serif;
+	max-width: 960px;
+	thead tr {
+		border-bottom: 1px solid #ccc;
+	}
+	th {
+		text-align: right;
+		padding: 0.5em 0.25em;
+	}
+	th:first-child {
+		text-align: left;
+	}
+	td {
+		text-align: right;
+		padding: 0.5em 0.25em;
+	}
+	td:first-child {
+		text-align: left;
+	}
+}
+
+/*the key part for making it responsive*/
+@media screen and (max-width: 480px) {
+    table {
+    	display: block;
+    	width: 100%;
+    	thead {
+			display: none;
+		}
+	    tbody {
+	    	display: block;
+    		width: 100%;
+    	}
+		tr, th, td {
+			display: block;
+			padding: 0.25em 0;	        
+	        text-align: left;
+		}
+		th[data-title]:before, td[data-title]:before {
+	        content: attr(data-title) ":\00A0";
+	        font-weight: bold;
+		}
+		tr {
+			border-bottom: 1px solid #ccc;
+			margin-bottom: 1em;
+			padding-bottom: 0.5em;
+		}
+		td {
+			border: none;
+		}
+		td:empty {
+			display: none;
+		}
+		td:first-child {
+			font-size: 1.2em;
+			font-weight: bold;
+	        &:before {
+	        	content: '';
+	        }
+		}
+	}
+}
+/*end responsive table css*/
+
 /*some page layout stuff for demo*/
 .sample {
 	margin: 0em 0;
