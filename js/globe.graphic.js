@@ -8,7 +8,18 @@ globe.graphic = function() {
 			input: $('.fuzzySearchInput'),
 			button: $('.fuzzySearchButton'),
 			data: fuzzySearchData,	//see fuzzySearchData.js
-			callback: showFuzzySearchResult	//function to call when complete
+			callback: showFuzzySearchResult,	//function to call when complete
+			errorElement: $('.fuzzySearchResults')
+		});
+
+		//setup fuzzy search with autocomplete
+		fuzzySearch({
+			input: $('.fuzzySearchAutoInput'),
+			button: $('.fuzzySearchAutoButton'),
+			data: fuzzySearchData,
+			callback: showFuzzySearchAutoResult,
+			errorElement: $('.fuzzySearchAutoResults'),
+			autocomplete: true
 		});
 
 		//drop in spreadsheet data
@@ -35,34 +46,44 @@ globe.graphic = function() {
 	// fuzzy search js
 	function fuzzySearch(params) {
 		var self = {
-			//setup default autocomplete functionality
-			distThreshold: 3, //how close the word needs to be to register as a match (X characters off)
+			distThreshold: 3, //how closely the search needs to match (num chars off)
 			init: function() {
+				if(params.autocomplete) {
+					// BEWARE! this depends on jquery autocomplete lib being loaded
+					self.setupAutocomplete();
+				}
+
+				self.setupButtonEvent();
+			},
+
+			setupAutocomplete: function() {
 				params.input.autocomplete({
-					source: params.data,	//what is the data we are using? must have a label field
-					minLength: 3,	//how many characters entered before showing results?	
+					source: params.data,
+					minLength: 3,
 					select: function(event, ui) {
 						params.callback(ui.item);
-						params.input.val(''); //clear the search
+						params.input.val(''); 		
 						return false;
 					}
 				});
+			},
 
-				params.button.on('click', function(e) {
+			setupButtonEvent: function() {
+				params.button.on('click', function(e) {	
 					e.preventDefault();
 					$(this).prev().blur();
-					var fuzz = $('.fuzzySearchInput').val().trim();
+					var fuzz = params.input.val().trim();
 					if(fuzz.length > 0) {
 						var result = self.findMatch(fuzz);
 						if(result) {
 							params.callback(result);
 						} else {
-							self.displayError(fuzz);
+							self.displayError(params.errorElement, fuzz);
 						}
 					}
-					params.input.val(''); //clear the search
+					params.input.val('');
 					return false;
-				});	
+				});
 			},
 			
 			findMatch: function(search) {
@@ -81,8 +102,10 @@ globe.graphic = function() {
 				return params.data[bestIndex];
 			},
 
-			displayError: function(search) {
-				$('.fuzzySearchResults').empty().text('could not find a match for ' + search);
+			displayError: function(el, fuzz) {
+				if(el) {
+					el.empty().text('could not find a match for ' + fuzz);	
+				}
 			},
 
 			levDist: function(e,t) {
@@ -99,10 +122,15 @@ globe.graphic = function() {
 		html += '<div>population: ' + data.population + '</div>';
 		html += '<div>median household income: $' + data.income + '</div>';
 		$('.fuzzySearchResults').empty().append(html);
+	}
 
+	function showFuzzySearchAutoResult(data) {
+		var html = '<div>' + data.label + '</div>';
+		html += '<div>population: ' + data.population + '</div>';
+		html += '<div>median household income: $' + data.income + '</div>';
+		$('.fuzzySearchAutoResults').empty().append(html);
 	}
 	// end fuzzy search js
-
 
 	//fire it up!
 	init();

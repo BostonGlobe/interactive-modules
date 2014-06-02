@@ -13,6 +13,10 @@ dependencies: howler, html5-audio-player (see js/libs)
 instructions forthcoming
 
 ####Fuzzy search (needs docs)
+dependecies: none
+instructions forthcoming
+
+####Fuzzy search w/ autocomplete (needs docs)
 dependecies: jqueryui autocomplete (see js/libs)
 instructions forthcoming
 
