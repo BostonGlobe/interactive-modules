@@ -8,6 +8,6 @@ window.sheet_data = [{
     "class": ""
 },{
     "id": "sheetCat",
-    "content": "<img src='http://russellgoldenberg.com/img/smokey.jpg'>",
+    "content": "<img src='http://cache.boston.com/multimedia/graphics/projectFiles/2014/demo/img/sheetCat.jpg'>",
     "class": ""
 }];

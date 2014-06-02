@@ -36,7 +36,7 @@ globe.graphic = function() {
 	function fuzzySearch(params) {
 		var self = {
 			//setup default autocomplete functionality
-			distThreshold: 5, //how close the word needs to be to register as a match (X characters off)
+			distThreshold: 3, //how close the word needs to be to register as a match (X characters off)
 			init: function() {
 				params.input.autocomplete({
 					source: params.data,	//what is the data we are using? must have a label field
@@ -82,12 +82,12 @@ globe.graphic = function() {
 			},
 
 			displayError: function(search) {
-				console.log('could not find a match for ' + search);
+				$('.fuzzySearchResults').empty().text('could not find a match for ' + search);
 			},
 
 			levDist: function(e,t) {
 				// http://www.merriampark.com/ld.htm, http://www.mgilleland.com/ld/ldjavascript.htm, Damerau–Levenshtein distance (Wikipedia)
-				e=e.toLowerCase();t=t.toLowerCase();var n=[];var r=e.length;var i=t.length;if(r===0)return i;if(i===0)return r;for(var s=r;s>=0;s--)n[s]=[];for(var o=r;o>=0;o--)n[o][0]=o;for(var u=i;u>=0;u--)n[0][u]=u;for(var a=1;a<=r;a++){var f=e.charAt(a-1);for(var l=1;l<=i;l++){if(a==l&&n[a][l]>4)return r;var c=t.charAt(l-1);var h=f==c?0:1;var p=n[a-1][l]+1;var d=n[a][l-1]+1;var v=n[a-1][l-1]+h;if(d<p)p=d;if(v<p)p=v;n[a][l]=p;if(a>1&&l>1&&f==t.charAt(l-2)&&e.charAt(a-2)==c){n[a][l]=Math.min(n[a][l],n[a-2][l-2]+h)}}}return n[r][i]
+				e=e.toLowerCase();t=t.toLowerCase();var n=[];var r=e.length;var i=t.length;if(r===0)return i;if(i===0)return r;for(var s=r;s>=0;s--)n[s]=[];for(var o=r;o>=0;o--)n[o][0]=o;for(var u=i;u>=0;u--)n[0][u]=u;for(var a=1;a<=r;a++){var f=e.charAt(a-1);for(var l=1;l<=i;l++){if(a==l&&n[a][l]>4)return r;var c=t.charAt(l-1);var h=f==c?0:1;var p=n[a-1][l]+1;var d=n[a][l-1]+1;var v=n[a-1][l-1]+h;if(d<p)p=d;if(v<p)p=v;n[a][l]=p;if(a>1&&l>1&&f==t.charAt(l-2)&&e.charAt(a-2)==c){n[a][l]=Math.min(n[a][l],n[a-2][l-2]+h);}}}return n[r][i];
 			}	
 		};
 
@@ -95,7 +95,11 @@ globe.graphic = function() {
 	}
 
 	function showFuzzySearchResult(data) {
-		console.log(data);
+		var html = '<div>' + data.label + '</div>';
+		html += '<div>population: ' + data.population + '</div>';
+		html += '<div>median household income: $' + data.income + '</div>';
+		$('.fuzzySearchResults').empty().append(html);
+
 	}
 	// end fuzzy search js
 
