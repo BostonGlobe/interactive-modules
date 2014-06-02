@@ -4,7 +4,7 @@
 This demo project contains samples of modules for Globe interactives. The modules are reusable bits of code that perform a specific task. Check out the source code for implementation instructions.
 
 ## Demo
-[http://prdedit.bostonglobe.com/Page/Boston/Content/Metro/WebGraphics/2014/demo/demo.xml](view demo)
+[view demo](http://prdedit.bostonglobe.com/Page/Boston/Content/Metro/WebGraphics/2014/demo/demo.xml)
 
 ## Modules
 
