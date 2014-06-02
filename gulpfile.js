@@ -264,3 +264,36 @@ gulp.task('homepage-prod', function() {
 });
 
 gulp.task('default', ['standalone']);
+
+
+//make sure to npm install these (npm install request csv es --save)
+var request	= require('request');
+var csv 	= require('csv-streamify');
+var es 		= require('event-stream');
+
+//google spreadsheet key
+var sheetKey = '1WNqklgb9N_S_AswDuf0BcRkBMld4eG0sc4gwuodBwBk';
+var sheetUrl = 'https://docs.google.com/spreadsheets/d/' + sheetKey  + '/export?gid=0&format=csv';
+
+gulp.task('sheet', function() {
+	var filename = 'js/sheetData.js';
+
+	//write first line to file
+	fs.writeFileSync(filename, 'window.sheet_data = [');
+
+	var stream = fs.createWriteStream(filename, {flags: 'a'})
+		.on('finish', function() { fs.appendFileSync(filename, '];');
+	});
+
+	request.get(sheetUrl)
+		.pipe(csv({columns: true}))
+		.pipe(es.map(function(data, callback) {
+			var obj = JSON.parse(data);
+			//do modifications here if on each column if needed (ex: convert to number)
+			
+			var output = JSON.stringify(obj, null, 4);
+			callback(null, output);
+		}))
+		.pipe(es.join(','))
+		.pipe(stream);
+});

@@ -5,10 +5,14 @@ This demo project contains samples of modules for Globe interactives. The module
 
 ## Modules
 
-####Audio player (need to add)
+####Audio player (needs docs)
 dependencies: howler, html5-audio-player (see js/libs)
 instructions forthcoming
 
-####Fuzzy search (in progress)
+####Fuzzy search (needs docs)
 dependecies: jqueryui autocomplete (see js/libs)
 instructions forthcoming
+
+####Spreadsheet data (needs docs)
+dependcies: (node modules) request, csv-streamify, event-stream
+see gulpfile.js

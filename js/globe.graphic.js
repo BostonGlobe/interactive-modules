@@ -10,11 +10,26 @@ globe.graphic = function() {
 			data: fuzzySearchData,	//see fuzzySearchData.js
 			callback: showFuzzySearchResult	//function to call when complete
 		});
+
+		//drop in spreadsheet data
+		spreadsheetData();
 	}
 
 
-	// audio player js
-	// end audio player js
+	// spreadsheet data js
+	function spreadsheetData() {
+		//see sheet-data.js for content
+		//loop thru each entry and add its content
+		for(var i = 0; i < sheet_data.length; i++) {
+			var row = sheet_data[i];
+			var el = $('#' + row.id);
+			el.html(row.content);
+			if(row.class) {
+				el.addClass(row.class);
+			}
+		}
+	}
+	// end spreadsheet data js
 
 
 	// fuzzy search js
