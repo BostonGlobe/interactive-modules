@@ -8,9 +8,9 @@ This demo project contains samples of modules for Globe interactives. The module
 
 ## Modules
 
-#### Audio player (needs docs)
-dependencies: howler, html5-audio-player (see js/libs)
-instructions forthcoming
+#### Social share (needs docs)
+dependencies: none
+instructions: just copy code, everything is done automatically.
 
 #### Fuzzy search (needs docs)
 dependencies: none
@@ -27,4 +27,8 @@ instructions forthcoming
 
 #### Responsive table (needs docs)
 dependencies: none
+instructions forthcoming
+
+#### Audio player (needs docs)
+dependencies: howler, html5-audio-player (see js/libs)
 instructions forthcoming
