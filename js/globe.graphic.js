@@ -3,6 +3,10 @@ globe.graphic = function() {
 
 
 	function init() {
+
+		//social share
+		setupSocial();
+
 		//setup fuzzy search
 		fuzzySearch({
 			input: $('.fuzzySearchInput'),
@@ -25,6 +29,23 @@ globe.graphic = function() {
 		//drop in spreadsheet data
 		spreadsheetData();
 	}
+
+	// social share js
+	function setupSocial() {
+		//grab the link from the url and the title of graphic
+		var href = window.location.href;
+		var text = $('.main-hed').text();
+		var	title = encodeURIComponent(text);
+
+		//create links
+		var twitter = 'https://twitter.com/intent/tweet?text=' + title + '&via=BostonGlobe&url=' + encodeURI(href);
+		var facebook = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURI(href);
+
+		//set links in the buttons
+		$('.social .twitter').attr('href', twitter);
+		$('.social .facebook').attr('href', facebook);
+	}
+	// end social share js
 
 
 	// spreadsheet data js
