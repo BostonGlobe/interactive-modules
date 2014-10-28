@@ -1,18 +1,40 @@
-# interactive-modules
+# Interactive modules for Globe graphics and stories
 
-This project was generated with [generator-globeproject](https://github.com/BostonGlobe/generator-globeproject). Consult its [README](https://github.com/BostonGlobe/generator-globeproject) for more information.
+## Description 
+This demo project contains samples of modules for Globe interactives. The modules are reusable bits of code that perform a specific task. Check out the source code for implementation instructions.
 
-Please note: do not reproduce Boston Globe logos or fonts without written permission.
+## Demo
+[view demo](http://prdedit.bostonglobe.com/Page/Boston/Content/Metro/WebGraphics/2014/demo/demo.xml)
 
-## Install
+## Modules
 
-- `npm install`
-- `bower install`
+#### Social share (needs docs)
+dependencies: none
+instructions: just copy code, everything is done automatically.
 
-## Usage
+#### Fuzzy search (needs docs)
+dependencies: none
+instructions forthcoming
 
-- `gulp`
+#### Fuzzy search w/ autocomplete (needs docs)
+dependencies: jqueryui autocomplete (see js/libs)
+instructions forthcoming
 
-## License
+#### Spreadsheet data
+built into generator now, see [generator readme](https://github.com/BostonGlobe/generator-globeproject#google-spreadsheet-data-to-json)
 
-MIT © [The Boston Globe](http://github.com/BostonGlobe)
+#### Responsive table
+use [Ms. responsive table generator](http://russellgoldenberg.github.io/ms-responsive-table-generator/)
+
+#### Audio player (needs docs)
+dependencies: howler, html5-audio-player (see js/libs)
+instructions forthcoming
+
+#### Responsive video player
+dependencies: howler, html5-audio-player (see js/libs)
+instructions forthcoming
+
+#### Load image via javascript with callback
+dependencies: none
+instructions forthcoming
+
