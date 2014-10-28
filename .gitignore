@@ -1,9 +1,10 @@
 .sass-cache
 .tmp
-node_modules
+/node_modules
 PROD.jpt
-bitbucket.sh
+git.sh
 index.html
-globegraphic.sublime-workspace
-js/templates/templates.js
-css/main.scss
+globeproject.sublime-workspace
+data/interactive-modules.html
+data/interactive-modules_files
+parts/globe
